@@ -1,0 +1,15 @@
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\bin\Debug\net6.0\mis-221-pa-5-hrenninger.exe
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\bin\Debug\net6.0\mis-221-pa-5-hrenninger.deps.json
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\bin\Debug\net6.0\mis-221-pa-5-hrenninger.runtimeconfig.json
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\bin\Debug\net6.0\mis-221-pa-5-hrenninger.dll
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\bin\Debug\net6.0\mis-221-pa-5-hrenninger.pdb
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.csproj.AssemblyReference.cache
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.AssemblyInfoInputs.cache
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.AssemblyInfo.cs
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.csproj.CoreCompileInputs.cache
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.dll
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\refint\mis-221-pa-5-hrenninger.dll
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.pdb
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\mis-221-pa-5-hrenninger.genruntimeconfig.cache
+C:\Users\hrenn\Stuff\mis221\mis-221-pa-5-hrenninger\obj\Debug\net6.0\ref\mis-221-pa-5-hrenninger.dll

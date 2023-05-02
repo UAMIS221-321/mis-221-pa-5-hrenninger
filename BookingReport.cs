@@ -12,17 +12,15 @@ namespace mis_221_pa_5_hrenninger
             this.bookings = bookings;
         }
         public void PrintAllBookings(){
-           // var lineCount = File.ReadLines("transactions.txt").Count();
-            //Sort();
-            //Console.WriteLine(bookings[0].ToString());
+            Sort();
+            Console.Clear();
             for (int i = 0; i< Booking.GetCount(); i++){
                 Console.WriteLine(bookings[i].ToString());
             }
-            Console.ReadKey();
         }
         public void Sort(){
             for(int i = 0;i<Booking.GetCount()-1; i++){
-                int min = 1;
+                int min = i;
                 for(int j = i+1; j<Booking.GetCount();j++){
                     if(bookings[j].GetSessionId()< bookings[min].GetSessionId()){
                         min = j;

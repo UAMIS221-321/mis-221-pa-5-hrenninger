@@ -59,7 +59,7 @@ namespace mis_221_pa_5_hrenninger
             }while (keyPressed != ConsoleKey.Enter);
             return index;
         }
-        public void ResetColor(){
+        private void ResetColor(){
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
         }

@@ -1,12 +1,9 @@
-1#Helene Renninger#123 Street#hrenninger@crimson.ua.edu 
-2#Ellie#ehehehe#ellie@crimson.ua.edu
-3#Mattie Bryant#help address#mbryant@crimson.ua.edu
+1#Helene Renninger#123 Address#hrenninger@crimson.ua.edu 
+2#Ellie Dockery#668 Drainer Avenue#ellie@crimson.ua.edu
+3#Mattie Bryant#2907 Ocello Street#mbryant@crimson.ua.edu
 4#Micah Pentecost#209 Wesley Place#mpentecost@crimson.ua.edu
 5#Brooke Crider#36 Auduban Place#bcrider@crimson.ua.edu
 6#Kyle Knudson#Hewson Hall#kknudson@cba.ua.edu
 7#Jerel Mitchell#University Blvd#jbmitchell6@crimson.ua.edu
-8#Peyton Kauffman#Bidgood hall#pvkauffman@crimson.ua.edu
+8#Peyton Kauffman#563 Bidgood#pvkauffman@crimson.ua.edu
 9#Madison Scott#123 Avenue#mscott@crimson.ua.edu
-10#Alexa Kass#2 Port Drive#akass@crimson.ua.edu
-11#Billy BobJoe#Joes Address#ahddh@mgial.com
-12#Cam#Cams addrress#fhfhf

@@ -32,14 +32,15 @@ namespace mis_221_pa_5_hrenninger
         public void GetAllBookingsFromFile(){
             //open
             StreamReader inFile = new StreamReader("transactions.txt");
-            //Booking[] bookings = new Booking[100];
             //process
             Booking.SetCount(0);
+            Booking.SetMaxCount(0);
             string line = inFile.ReadLine();
             while(line != null){
                 string[] temp = line.Split('#');
                 bookings[Booking.GetCount()] = new Booking(int.Parse(temp[0]), temp[1], temp[2], DateOnly.Parse(temp[3]), int.Parse(temp[4]), temp[5], int.Parse(temp[6]), temp[7]);
                 Booking.IncCount();
+                Booking.IncMaxCount();
                 line = inFile.ReadLine();
             }
             //close
@@ -62,10 +63,8 @@ namespace mis_221_pa_5_hrenninger
                     Swap(min, i);
                 }
             }
-            Save();
-            
         }
-        public void BookListing(){
+        public void BookListing(){  //book a listing only if valid listing
 
             Console.WriteLine("What is the ID of the listing that you would like to book?");
             int searchVal = int.Parse(Console.ReadLine());
@@ -78,19 +77,13 @@ namespace mis_221_pa_5_hrenninger
                 Console.WriteLine("Is this the listing that you would like to sign up for? (Y/N)");
                 string userChoice = Console.ReadLine();
                 if (userChoice == "Y"){
-                    Booking myBooking = new Booking();
+                    //Booking myBooking = 
                     Console.WriteLine("What is the patron name?");
                     string name = Console.ReadLine();
                     Console.WriteLine("What is the patron email address?");
                     string email = Console.ReadLine();
-                    myBooking.SetSessionId(Booking.GetCount()+1);
-                    myBooking.SetCustName(name);
-                    myBooking.SetCustEmail(email);
-                    myBooking.SetDate(listings[foundIndex].GetDate());
-                    myBooking.SetTrainerName(listings[foundIndex].GetName());
-                    myBooking.SetTrainerId(listings[foundIndex].GetTrainerId());
-                    myBooking.SetStatus("Booked");
-                    myBooking.SetCost(listings[foundIndex].GetCost());
+                    int id = Booking.GetMaxCount()+1;
+                    Booking myBooking = new Booking(id, name, email, listings[foundIndex].GetDate(), listings[foundIndex].GetTrainerId(), listings[foundIndex].GetName(), listings[foundIndex].GetCost(), "Booked");
                     bookings[Booking.GetCount()] = myBooking;
                     UpdateListing(foundIndex);
                     Booking.IncCount();
@@ -101,10 +94,9 @@ namespace mis_221_pa_5_hrenninger
             else{
                 Console.WriteLine("Listing not found :(");
             }
-            
-
+            Console.ReadKey();
         }
-        private void UpdateListing(int foundIndex){
+        private void UpdateListing(int foundIndex){//update the status in listings too
             listings[foundIndex].SetStatus("Booked");
             StreamWriter outFile = new StreamWriter("listings.txt");
             for (int i = 0; i<Listing.GetCount(); i++){
@@ -119,19 +111,92 @@ namespace mis_221_pa_5_hrenninger
                         return i;
                     }
                     else return -2;
-                    
                 }
-
             }
             return -1;
         }
         private void Save(){
+            //Sort();
             StreamWriter outFile = new StreamWriter("transactions.txt");
             for (int i = 0; i<Booking.GetCount(); i++){
                 outFile.WriteLine(bookings[i].ToFile());
             }
             outFile.Close();
         }
-        
+        public void DeleteBooking(){
+            Console.Write("What is the ID of the booking you would like to delete? ");
+            int searchVal = int.Parse(Console.ReadLine());
+            int foundIndex = Find(searchVal);
+            Console.WriteLine($"foundIndex: {foundIndex}");
+            if (foundIndex != -1){
+                StreamWriter outFile = new StreamWriter("deletedbookings.txt",true);
+                outFile.WriteLine(listings[foundIndex].ToFile());
+                outFile.Close();
+                for (int i = foundIndex; i< Booking.GetCount();i++){
+                    bookings[foundIndex] = bookings[foundIndex+1];
+                }
+                Booking.DecCount();
+                SaveLess(); 
+            }
+            else{
+                Console.WriteLine("Listing not found :(");
+            }
+        }
+        private int Find(int searchVal){
+            for(int i = 0; i<Booking.GetCount();i++){  //
+                if (bookings[i].GetSessionId() == searchVal){
+                    return i;
+                }
+            }
+            return -1;
+        }
+        private void SaveLess(){
+            //Sort();
+            StreamWriter outFile = new StreamWriter("listings.txt");
+            for (int i = 0; i<Booking.GetCount()-1; i++){
+                outFile.WriteLine(bookings[i].ToFile());
+            }
+            outFile.Close();
+        }
+        public void UpdateBooking(){
+            Console.WriteLine("What is the ID of the booking you would like to update");
+            int searchVal = int.Parse(Console.ReadLine());
+            int foundIndex = Find(searchVal);
+            if (foundIndex != -1){
+                string title = "WHAT DO YOU WANT TO UPDATE?";
+                string[] options = {"Status", "Customer Name", "Customer Email","Exit"};
+                ArrowKeyOptions update = new ArrowKeyOptions(title, options);
+                int updateChoice = update.Run();
+                while(updateChoice != 3){
+                    if(updateChoice == 0){
+                        string newStatus = GetNewStatus();
+                        bookings[foundIndex].SetStatus(newStatus);
+                    }
+                    else if(updateChoice == 1){
+                        Console.WriteLine("What is the patron name?");
+                        string name = Console.ReadLine();
+                        bookings[foundIndex].SetCustName(name);
+                    }
+                    else if(updateChoice == 2){
+                        Console.WriteLine("What is the patron email address?");
+                        string email = Console.ReadLine();
+                        bookings[foundIndex].SetCustEmail(email);
+                    }
+                    updateChoice = update.Run();
+                }
+                Save(); 
+            } 
+            else{
+                Console.WriteLine("Booking not found :(");
+            }   
+               
+        }
+        private string GetNewStatus(){
+            string updatetitle = "WHAT DO YOU WANT TO UPDATE?";
+            string[] statusoptions = {"Completed", "Cancelled", "Booked","Exit"};
+            ArrowKeyOptions updatestatus = new ArrowKeyOptions(updatetitle, statusoptions);
+            int statusChoice = updatestatus.Run();
+            return statusoptions[statusChoice];
+        }
     }
 }

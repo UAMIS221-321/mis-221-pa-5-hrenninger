@@ -210,7 +210,7 @@ namespace mis_221_pa_5_hrenninger
             activeTrainRepo = !activeTrainRepo;
         }
 
-        public void ResetColor(){
+        private void ResetColor(){
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
         }

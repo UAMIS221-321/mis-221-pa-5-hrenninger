@@ -28,11 +28,6 @@ namespace mis_221_pa_5_hrenninger
             this.email = email;
         }
 
-        public Trainer(string name, string email){
-            this.name = name;
-            this.email = email;
-        }
-
         public void SetId(int id){
             this.id = id;
         }
@@ -63,6 +58,9 @@ namespace mis_221_pa_5_hrenninger
         }
         static public void IncCount(){
             count++;
+        }
+        static public void DecCount(){
+            count--;
         }
 
         static public int GetCount(){

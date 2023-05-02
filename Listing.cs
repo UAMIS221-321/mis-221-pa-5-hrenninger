@@ -81,6 +81,9 @@ namespace mis_221_pa_5_hrenninger
         static public void IncCount(){
             count++;
         }
+        static public void DecCount(){
+            count--;
+        }
 
         static public int GetCount(){
             return count;

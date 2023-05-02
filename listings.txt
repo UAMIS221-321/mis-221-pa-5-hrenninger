@@ -1,16 +1,13 @@
 1#Helene Renninger#1#1/1/2023#6:00 AM#50#Open
 2#Ellie#2#2/2/2023#7:00 AM#50#Open
-3#Mattie Bryant#3#3/3/2023#8:00 AM#50#Open
+3#Mattie Bryant#3#3/3/2023#8:00 AM#50#Booked
 4#Micah Pentecost#4#5/5/2023#10:00 AM#50#Open
-5#Brooke Crider#5#4/4/2023#9:00 AM#4#Booked
+5#Brooke Crider#5#4/4/2023#9:00 AM#60#Booked
 6#Kyle Knudson#6#6/6/2023#11:00 AM#50#Open
-7#Jerel Mitchell#7#7/7/2023#12:00 PM#50#Open
+7#Jerel Mitchell#7#7/7/2023#12:00 PM#50#Booked
 8#Peyton Kauffman#8#8/8/2023#1:00 PM#50#Open
-9#Ellie#2#11/23/2023#4:00 PM#50#Open
-10#Ellie#2#2/13/2023#9:00 PM#50#Open
+11#Brooke Crider#5#5/30/2023#1:00 PM#40#Open
+11#Brooke Crider#5#5/30/2023#1:00 PM#40#Open
 11#Brooke Crider#5#5/30/2023#1:00 PM#40#Open
 12#Mattie Bryant#3#3/30/2023#7:00 AM#40#Open
-13#Mattie Bryant#3#3/30/2023#8:00 AM#2#Open
-14#Helene Renninger#1#1/1/2023#7:00 AM#23#Open
-15#Billy BobJoe#11#1/1/2023#6:00 AM#234#Open
-16#Mattie Bryant#3#3/20/2023#9:00 AM#70#Open
+9#Ellie#2#11/23/2023#4:00 PM#100#Open

@@ -86,7 +86,9 @@ namespace mis_221_pa_5_hrenninger
         static public void IncCount(){
             count++;
         }
-
+         static public void DecCount(){
+            count--;
+        }
         static public int GetCount(){
             return count;
         }
@@ -102,7 +104,7 @@ namespace mis_221_pa_5_hrenninger
         }
          public override string ToString()
         {
-            return $"{custName}'s session Id: {sessionId} with {trainerName} on {date}.\nFurther details will be relayed to {custEmail}\n";
+            return $"{custName}'s session Id: {sessionId} with {trainerName} on {date}.\nFurther details will be relayed to {custEmail}\nStatus: {status}";
             
         }
         public string ToFile()

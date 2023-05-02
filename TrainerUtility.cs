@@ -26,40 +26,34 @@ namespace mis_221_pa_5_hrenninger
                 Trainer.IncMaxCount();
                 line = inFile.ReadLine();
             }
-
-
-
-            //close
             inFile.Close();
         }
         public void AddTrainer(){
             Trainer myTrainer = new Trainer();
             myTrainer.SetId(Trainer.GetMaxCount()+1);
             
-            Console.WriteLine("Please enter trainer name (First, Last)");
+            Console.Write("Please enter trainer name (First, Last): ");
             string name = Console.ReadLine();
             bool isValid = NewName(name);
             while(!isValid){
                 Console.WriteLine($"Trainer {name} already exists");
-                Console.WriteLine("Please enter new trainer name (First, Last)");
+                Console.Write("Please enter new trainer name (First, Last): ");
                 name = Console.ReadLine();
                 isValid = NewName(name);
             }
             myTrainer.SetName(name);
             
-            Console.WriteLine("Please enter trainer mailing address");
+            Console.Write("Please enter trainer mailing address: ");
             myTrainer.SetAddress(Console.ReadLine());
             
-            Console.WriteLine("Please enter trainer email");
+            Console.Write("Please enter trainer email: ");
             myTrainer.SetEmail(Console.ReadLine());
 
             trainers[Trainer.GetCount()] = myTrainer;
 
             Trainer.IncCount();
             Trainer.IncMaxCount();
-            Sort();
             Save();
-
         }
         private bool NewName(string name){
             for (int i = 0; i < Trainer.GetCount(); i++){
@@ -71,6 +65,7 @@ namespace mis_221_pa_5_hrenninger
         }
 
         private void Save(){
+            //Sort();
             StreamWriter outFile = new StreamWriter("trainers.txt");
             for (int i = 0; i<Trainer.GetCount(); i++){
                 outFile.WriteLine(trainers[i].ToFile());
@@ -79,49 +74,45 @@ namespace mis_221_pa_5_hrenninger
         }
 
         public void UpdateTrainer(){
-            Console.WriteLine("What is the ID of the trainer you would like to update");
-            int searchVal = int.Parse(Console.ReadLine());
+            int[] index = new int[2];
+            index[0] = 1;
+            index[1]=0;
+            ArrowKeyDisplay display = new ArrowKeyDisplay("UPDATE TRAINERS - Press Enter to update", trainers, index);
+            index = display.Run();
+            //Console.Write("What is the ID of the trainer you would like to update? ");
+            int searchVal = index[1]+1;
             int foundIndex = Find(searchVal);
-
             if (foundIndex != -1){
-                string title = "WHAT DO YOU WANT TO UPDATE?";
-                string[] options = {"Trainer Name", "Trainer Address", "Trainer Email", "Exit"};
-                ArrowKeyOptions update = new ArrowKeyOptions(title, options);
-                int updateChoice = update.Run();
-                while(updateChoice != 3){
-                    if(updateChoice == 0){
-                        Console.WriteLine("Please enter the name");
-                        trainers[foundIndex].SetName(Console.ReadLine());
-                    }
-                    else if(updateChoice == 1){
-                        Console.WriteLine("Please enter the address");
-                        trainers[foundIndex].SetAddress(Console.ReadLine());
-                    }
-                    else if(updateChoice == 2){
-                        Console.WriteLine("Please enter the email");
-                        trainers[foundIndex].SetEmail(Console.ReadLine());
-                    }
-                    updateChoice = update.Run();
-                } 
-                Console.WriteLine("Trainer has been updated:");
+                int updateChoice = index[0];
+                if(updateChoice == 1){
+                    Console.Write($"Please enter the updated name: ");
+                    trainers[foundIndex].SetName(Console.ReadLine());
+                }
+                else if(updateChoice == 2){
+                    Console.Write($"Please enter the updated address:");
+                    trainers[foundIndex].SetAddress(Console.ReadLine());
+                }
+                else if(updateChoice == 3){
+                    Console.Write($"Please enter the updated email: ");
+                    trainers[foundIndex].SetEmail(Console.ReadLine());
+                }
+                Console.Write("Trainer has been updated:");
                 Console.WriteLine(trainers[foundIndex].ToString());
-                Sort();
                 Save(); 
             }
             else{
                 Console.WriteLine("Trainer not found :(");
             }
         }
-        private int Find(int searchVal){
-            for(int i = 0; i<Trainer.GetCount();i++){  //
+        private int Find(int searchVal){  //search trainers for value
+            for(int i = 0; i<Trainer.GetCount();i++){
                 if (trainers[i].GetId() == searchVal){
                     return i;
                 }
-
             }
             return -1;
         }
-        public void Sort(){
+        public void Sort(){  //sort trainers by id
             for(int i = 0;i<Trainer.GetCount()-1; i++){
                 int min = i;
                 for(int j = i+1; j<Trainer.GetCount();j++){
@@ -133,7 +124,6 @@ namespace mis_221_pa_5_hrenninger
                     Swap(min, i);
                 }
             }
-            
         }
         private void Swap(int x, int y){
             Trainer temp = trainers[x];
@@ -141,23 +131,21 @@ namespace mis_221_pa_5_hrenninger
             trainers[y] = temp;
         }
 
-        public void DeleteTrainer(){
-            Console.WriteLine("What is the ID of the trainer you would like to delete");
+        public void DeleteTrainer(){  //delete a trainer
+            Console.Write("What is the ID of the trainer you would like to delete? ");
             int searchVal = int.Parse(Console.ReadLine());
             int foundIndex = Find(searchVal);
-            Console.WriteLine($"foundIndex: {foundIndex}");
+            //Console.WriteLine($"foundIndex: {foundIndex}");
             if (foundIndex != -1){
-                StreamWriter outFile = new StreamWriter("deleted.txt", true);//this is trashcan tehe
+                StreamWriter outFile = new StreamWriter("deletedtrainers.txt", true);
                 outFile.WriteLine(trainers[foundIndex].ToFile());
                 outFile.Close();
                 for (int i = foundIndex; i< Trainer.GetCount();i++){
                     trainers[i] = trainers[i+1];
                 }
-                // Console.WriteLine("user count");
-                // Console.WriteLine(Trainer.GetCount());
-                Sort();
+                Trainer.DecCount();
                 SaveLess(); 
-                Console.WriteLine("Trainer has been deleted. Press ENTER to continue...");
+                Console.WriteLine("\nTrainer has been deleted. Press ENTER to continue...");
                 Console.ReadKey();
             }
             else{
@@ -165,11 +153,13 @@ namespace mis_221_pa_5_hrenninger
             }
         }
         private void SaveLess(){
+            //Sort();
             StreamWriter outFile = new StreamWriter("trainers.txt");
             for (int i = 0; i<Trainer.GetCount()-1; i++){
                 outFile.WriteLine(trainers[i].ToFile());
             }
             outFile.Close();
         }
+        
     }
 }

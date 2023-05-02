@@ -130,10 +130,6 @@ namespace mis_221_pa_5_hrenninger
             count++;
             revList[count] = $"Year: {bookings[0].GetDate().Year} -- Revenue: {yearsum}";
             count++;
-            for(int k = 0; k<count; k++){
-                Console.WriteLine(revList[k]);
-            }
-            Console.ReadKey();
             SaveReport(revList, count);
             Sort();
         }

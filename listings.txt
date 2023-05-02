@@ -6,8 +6,5 @@
 6#Kyle Knudson#6#6/6/2023#11:00 AM#50#Open
 7#Jerel Mitchell#7#7/7/2023#12:00 PM#50#Booked
 8#Peyton Kauffman#8#8/8/2023#1:00 PM#50#Open
-11#Brooke Crider#5#5/30/2023#1:00 PM#40#Open
-11#Brooke Crider#5#5/30/2023#1:00 PM#40#Open
-11#Brooke Crider#5#5/30/2023#1:00 PM#40#Open
-12#Mattie Bryant#3#3/30/2023#7:00 AM#40#Open
 9#Ellie#2#11/23/2023#4:00 PM#100#Open
+10#Brooke Crider#5#5/30/2023#1:00 PM#40#Open

@@ -1,16 +1,38 @@
-
-
-
-
-
+Billy Bob's session Id: 1 with Helene Renninger on 1/1/2023.
+Further details will be relayed to billybob@gmail.com
+Status: Booked
+Billy Bob's session Id: 1 with Helene Renninger on 1/1/2023.
+Further details will be relayed to billybob@gmail.com
+Status: Booked
+Billy Bob's session Id: 3 with Mattie Bryant on 3/3/2023.
+Further details will be relayed to billybob@gmail.com
+Status: Booked
+Billy Bob's session Id: 7 with Mattie Bryant on 3/3/2023.
+Further details will be relayed to billybob@gmail.com
+Status: Booked
+Billy Bob's session Id: 6 with Brooke Crider on 4/4/2023.
+Further details will be relayed to billybob@gmail.com
+Status: Booked
 Customer Billy Bob has booked 4 sessions
 
-
+Evan Devam's session Id: 5 with Kyle Knudson on 6/6/2023.
+Further details will be relayed to edevam@gmail.com
+Status: Booked
 Customer Evan Devam has booked 1 sessions
 
-
+Hihi's session Id: 8 with Brooke Crider on 4/4/2023.
+Further details will be relayed to hihdh
+Status: Booked
 Customer Hihi has booked 1 sessions
 
-
-
+Sally Silly's session Id: 2 with Ellie on 2/2/2023.
+Further details will be relayed to sallysilly@gmail.com
+Status: Completed
+Sally Silly's session Id: 4 with Micah Pentecost on 5/5/2023.
+Further details will be relayed to sallysilly@gmail.com
+Status: Booked
+Sally Silly's session Id: 9 with Jerel Mitchell on 7/7/2023.
+Further details will be relayed to sallysilly@gmail.com
+Status: Booked
+Customer Sally Silly has booked 3 sessions
 

@@ -17,13 +17,21 @@ namespace mis_221_pa_5_hrenninger
             //open
             StreamReader inFile = new StreamReader("trainers.txt");
             //process
+            bool first = false;
+            if(Trainer.GetMaxCount() == 0){
+                Trainer.SetMaxCount(0);
+                first = true;
+            }
             Trainer.SetCount(0);
+            
             string line = inFile.ReadLine();
             while(line != null){
                 string[] temp = line.Split('#');
                 trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]), temp[1], temp[2], temp[3]);
                 Trainer.IncCount();
-                Trainer.IncMaxCount();
+                if(first){
+                    Trainer.IncMaxCount();
+                }
                 line = inFile.ReadLine();
             }
             inFile.Close();
@@ -65,7 +73,7 @@ namespace mis_221_pa_5_hrenninger
         }
 
         private void Save(){
-            //Sort();
+            Sort();
             StreamWriter outFile = new StreamWriter("trainers.txt");
             for (int i = 0; i<Trainer.GetCount(); i++){
                 outFile.WriteLine(trainers[i].ToFile());
@@ -144,7 +152,7 @@ namespace mis_221_pa_5_hrenninger
                     trainers[i] = trainers[i+1];
                 }
                 Trainer.DecCount();
-                SaveLess(); 
+                Save(); 
                 Console.WriteLine("\nTrainer has been deleted. Press ENTER to continue...");
                 Console.ReadKey();
             }

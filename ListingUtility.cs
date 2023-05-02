@@ -18,13 +18,18 @@ namespace mis_221_pa_5_hrenninger
             StreamReader inFile = new StreamReader("listings.txt");
             //process
             Listing.SetCount(0);
-            Listing.SetMaxCount(0);
+            bool first = false;
+            if(Listing.GetMaxCount()==0){
+                first = true;
+            }
             string line = inFile.ReadLine();
             while(line != null){
                 string[] temp = line.Split('#');
                 listings[Listing.GetCount()] = new Listing(int.Parse(temp[0]), temp[1], int.Parse(temp[2]), DateOnly.Parse(temp[3]), TimeOnly.Parse(temp[4]), int.Parse(temp[5]), temp[6]);
                 Listing.IncCount();
-                Listing.IncMaxCount();
+                if(first){
+                    Listing.IncMaxCount();
+                }
                 line = inFile.ReadLine();
             }
             //close
